@@ -99,3 +99,7 @@
 			https://www.cisco.com/c/en/us/products/routers/4000-series-integrated-services-routers-isr/index.html
 		- comparacion de serie 4000
 			https://www.cisco.com/c/en_in/products/routers/4000-series-integrated-services-routers-isr/models-comparison.html
+
+
+# Imagen primera revision de topologia
+![Topologia](topologia.png)
