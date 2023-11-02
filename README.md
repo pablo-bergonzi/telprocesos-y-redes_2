@@ -1,4 +1,7 @@
 # TP teleprocesos-y-redes_2
+*El Archivo tp.pkt se descarga y se abre con packet tracer, es un binario asi que no se va a ver el delta de manera discernible*
+
+*La consigna entera del TP esta en el [Repo](Consigna.docx) *
 
 	
 ## 1. Definir reemplazo de Router cisco 2961 con OSPf - [X]
@@ -36,7 +39,7 @@
         * Dejamos la primera subred de 10.7.0.0/24 para el backhoul como convencion
 
 
-## 4. Asignacion se subredes (ahi hay mucho desperdicio de IPs) [X]
+## 4. Asignacion de subredes[X]
    * Area 0:
 			10.7.0.0/24
    * Area 100:
@@ -50,18 +53,40 @@
 ## 5. asignar datos al diagrama en el emulador [-]
 
 - Crear routers, switches, servers y terminales [X]
-- Como solo va haber limitadas maquinas documentadas en que area y conectada a donde vana  estar las estaciones de cada subred (conexiones, aread, etc)[X]
-erdo a nuemros de arrib, no el numero total pero qeu sean varias)  [] 
+- Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
 - Connectar por ospf las areas  []
-- Connectar por ospf las areas VLANS [] 
+- Armar subredes por VLANS [] 
 - Agegar routers wireless para estacioens mobiles? []
 	
-## 6. Agregar ACL [] 
+## 6. Agregar ACL del TP []   
+- La estación de trabajo PC100 y el servidor de archivos Server100 se encuentran en la subred de administración. Cualquier dispositivo en la subred de administración debe tener acceso a cualquier otro dispositivo en cualquier parte de la red. []  
+
+- Las estaciones de trabajo en las subredes del área 200 y 300 no deben tener acceso a ningún dispositivo fuera de su subred, salvo para interconectarse con el servidor de archivos Server100.- Cada router debe poder hacer telnet en los demás routers y tener acceso a cualquier dispositivo en la red. []
+
+- Se solicita escriba un corto resumen del propósito de cada control de acceso, las interfaces en las que se utilizarán y la dirección del tráfico. []
+
 	
 	
-## 7. Hacer pruebas [] 
+## 7. Instalar y configurar TFTF en los servers como dice el TP [] 
+
+## 8. Hacer pruebas []   
+  
+- Hacer telnet entre ruters de diferentes áreas 	CON ÉXITO  [] 
+- Hacer telnet de PC300 al router del área 200  	BLOQUEADO  [] 
+- Hacer telnet de PC200 al router del área 300 	BLOQUEADO [] 
+- Hacer telnet de PC100 y Nodo Oeste a los routers del área 200 y 300 	CON ÉXITO [] 
+- Hacer telnet del Server100 a todos los routers	CON ÉXITO 
+- Hacer ping de PC200, Nodo Centro, PC300 y Nodo Este al servidor de arch 100 	CON ÉXITO [] 
+- Hacer ping de PC200 a Nodo Centro	BLOQUEADO  [] 
+- Hacer ping de PC300 a Nodo Este	BLOQUEADO  [] 
+- Hacer ping de PC200 a Nodo Este	CON EXITO [] 
+- Hacer ping de PC300 a Nodo Centro	CON EXITO  [] 
+- Hacer ping de PC100 a PC200, Nodo Centro, PC300 y Nodo Este	CON ÉXITO  [] 
+- Hacer ping del router del área 200 a PC300, Nodo Este y Server300	CON ÉXITO  [] 
+- Hacer ping del router del área 300 a PC200, Nodo Centro y Server200	CON ÉXITO  [] 
+
 	
-## 8.  Hacer docuemntacion []
+## 9.  Hacer docuemntacion final mencionada en el TP[]
 
 
 # Biblio
