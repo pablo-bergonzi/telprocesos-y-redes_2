@@ -29,9 +29,7 @@
         * Si asumimos que la mitad de las maquinas mobiles pueden estar en cualquier lugar de la red. minimo 212 por subred con un CIDR/24 hay 254 hosts, lo cual es suficiente para permitir el creciemeinto a futuro de la organizacion y soportar maquinas mobiles.   
         
         *  /24 permite crear mas subredes a fututo y mejora mucho la legibilidad ya que las direcciones podrian usarse la forma de Direccion.Direccion.Subnet.HHHHHHHH mucho ya que el segundo octeto de subred no seria necesario (con el primero ya tenemos 256 posiles redes, mas que 50)
-        
-        *  Necesitamos 50 subredes, es decir log(50)/log(2)~= 8 necesitamos 8 bits, ya estamos cubiertos por el punto anterior
-        		
+                		
         * Incluye los servers y nodos.
 		
         * esas estaciones son el total de la organizaion, y solo una subred pedude acceder al nodo central
