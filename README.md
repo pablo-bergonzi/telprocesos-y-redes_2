@@ -7,6 +7,7 @@
 ## 1. Definir reemplazo de Router cisco 2961 con OSPf - [X]
 	
 		La recomendacion en el sitio del vendedor es que vayamos por la serie 4000 de routers asi que elegimos CISCO-4331.
+// preguntar sie sta bien
 		
 	
 ## 2. Definir distribucion de Redes [X] 
@@ -26,35 +27,37 @@
         
         * 12 estaciones fijas por subred + 400 que pueden estar en cualquier parte de la Organizacion
         
-        * Si asumimos que la mitad de las maquinas mobiles pueden estar en cualquier lugar de la red. minimo 212 por subred con un CIDR/24 hay 254 hosts, lo cual es suficiente para permitir el creciemeinto a futuro de la organizacion y soportar maquinas mobiles.   
+        * Si asumimos que la todas las maquinas mobiles pueden estar en cualquier lugar de la red. minimo 412 por subred con un CIDR/23 hay 512 hosts(510 usables), lo cual es suficiente para permitir el creciemeinto a futuro de la organizacion y soportar maquinas mobiles.   
         
-        *  /24 permite crear mas subredes a fututo y mejora mucho la legibilidad ya que las direcciones podrian usarse la forma de Direccion.Direccion.Subnet.HHHHHHHH mucho ya que el segundo octeto de subred no seria necesario (con el primero ya tenemos 256 posiles redes, mas que 50)
+        *  /23 permite crear mas subredes a fututo
                 		
         * Incluye los servers y nodos.
 		
         * esas estaciones son el total de la organizaion, y solo una subred pedude acceder al nodo central
 		
-        * Dejamos la primera subred de 10.7.0.0/24 para el backhoul como convencion
+        * Dejamos la primera subred de 10.7.0.0/23 para el backhoul como convencion y futuras direcciones.
 
 
 ## 4. Asignacion de subredes[X]
    * Area 0:
-			10.7.0.0/24
+			10.7.0.0/23
    * Area 100:
-			10.8.0.0/24 - 10.8.0.0/24
+			10.8.0.0/23 - 10.8.34.0/23
    * Area 200:
-			10.8.20.0/24 - 10.8.40.0/24
+			10.8.36.0/23 - 10.8.68.0/23
    * Area 300:
-			10.8.40.0/24 - 10.8.50.0/24
+			10.8.70.0/23 - 10.8.100.0/23
 			
 			
 ## 5. asignar datos al diagrama en el emulador [-]
 
 - Crear routers, switches, servers y terminales [X]
 - Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
-- Connectar por ospf las areas  []
+- Decidir, Todas VLANS o agrear mas routers y una subred por interfaz? [X] VLANS
+- Discutir,Agegar routers wireless para estacioens mobiles? [X] NO
+- Connectar por ospf las areas  [] 
 - Armar subredes por VLANS [] 
-- Agegar routers wireless para estacioens mobiles? []
+
 	
 ## 6. Agregar ACL del TP []   
 - La estación de trabajo PC100 y el servidor de archivos Server100 se encuentran en la subred de administración. Cualquier dispositivo en la subred de administración debe tener acceso a cualquier otro dispositivo en cualquier parte de la red. []  
