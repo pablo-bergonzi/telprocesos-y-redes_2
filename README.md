@@ -40,7 +40,7 @@
 
 ## 4. Asignacion de subredes[X]
    * Area 0:
-			10.7.0.0/23
+			10.7.0.0/23- 10.7.12.0/23
    * Area 100:
 			10.8.0.0/23 - 10.8.34.0/23
    * Area 200:
@@ -55,8 +55,16 @@
 - Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
 - Decidir, Todas VLANS o agrear mas routers y una subred por interfaz? [X] VLANS
 - Discutir,Agegar routers wireless para estacioens mobiles? [X] NO
-- Connectar por ospf las areas  [] 
-- Armar subredes por VLANS [] 
+- Connectar y dar Ip routers [X] 
+- Connectar y crear areas OSPF  [] 
+    - area  0 []
+    - area  100 []
+    - area 200 []
+    - area 300 []
+- Coenctar y dar ip fija a servers [] 
+- Coenctar y dar ip fija a Nodos [] 
+- Dar IP a terminales por  [] 
+- Armar subredes por VLANS (las 50)[] 
 
 	
 ## 6. Agregar ACL del TP []   
