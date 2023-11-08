@@ -58,7 +58,7 @@
 - Connectar y dar Ip routers [X] 
 - Connectar y crear areas OSPF  [-] 
     - // probar:   >show ip ospf interface;  >   
-    R1 A0
+    - R1 A0
 		> en
 		> conf t
 		> router ospf id
@@ -66,7 +66,8 @@
 		> network 10.7.2.0  255.255.254.0  area 0
 		> network 10.7.6.0  255.255.254.0  area 0
 		> end
-	R2 A0
+
+    - R2 A0
 		> en
 		> conf t
 		> router ospf id
@@ -74,7 +75,8 @@
 		> network 10.7.4.0  255.255.254.0  area 0
 		> network 10.7.10.0  255.255.254.0  area 0
 		> end
-	R3 A0
+
+    - R3 A0
 		> en
 		> conf t
 		> router ospf id
@@ -82,7 +84,8 @@
 		> network 10.7.4.0  255.255.254.0  area 0
 		> network 10.7.12.0  255.255.254.0  area 0 
 		> end
-	R4 A0 a100
+
+    - R4 A0 a100
 		> en
 		> conf t
 		> router ospf id
@@ -90,14 +93,16 @@
 		> network 10.7.8.0  255.255.254.0  area 0
 		> network 10.8.0.0  255.255.254.0  area 100 // va todo el rango?
 		> end
-	R5 A0 a100
+
+    - R5 A0 a100
 		> en
 		> conf t
 		> router ospf id
 		> network 10.7.10.0  255.255.254.0  area 0
 		> network 10.8.36.0  255.255.254.0  area 200 // va todo el rango?
 		> end
-	R6 A0 a100
+
+    - R6 A0 a100
 		> en
 		> conf t
 		> router ospf id
