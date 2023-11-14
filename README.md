@@ -58,63 +58,846 @@
 - Connectar y dar Ip routers [X] 
 - Connectar y crear areas OSPF  [-] 
     - // probar:   >show ip ospf interface;  >   
-    - R1 A0
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.0.0  255.255.254.0  area 0
-		> network 10.7.2.0  255.255.254.0  area 0
-		> network 10.7.6.0  255.255.254.0  area 0
-		> end
-
+  	- R1 A0
+```
+                en
+                conf t
+                router ospf id
+                network 10.7.0.0  255.255.254.0	area 0
+                network 10.7.2.0  255.255.254.0	area 0
+                network 10.7.6.0  255.255.254.0	area 0
+                end
+```
+ 
     - R2 A0
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.0.0  255.255.254.0  area 0
-		> network 10.7.4.0  255.255.254.0  area 0
-		> network 10.7.10.0  255.255.254.0  area 0
-		> end
+```
+                en
+                conf t
+                router ospf id
+                network 10.7.0.0  255.255.254.0  area 0
+                network 10.7.4.0  255.255.254.0  area 0
+                network 10.7.10.0  255.255.254.0  area 0
+                end
+```
+	- R3 A0
+```
+		 en
+		 conf t
+		 router ospf id
+		 network 10.7.6.0  255.255.254.0  area 0
+		 network 10.7.4.0  255.255.254.0  area 0
+		 network 10.7.12.0  255.255.254.0  area 0
+```
+		 end
+	- R4 A0 A100
+```
+		 en
+		 conf t
+		 router ospf 1
+		 network 10.7.2.0  255.255.254.0  area 0
+		 network 10.7.8.0  255.255.254.0  area 0
+			network 10.8.0.0 255.255.254.0   area 100 
+			network 10.8.2.0 255.255.254.0   area 100 
+			network 10.8.4.0 255.255.254.0   area 100 
+			network 10.8.6.0 255.255.254.0   area 100 
+			network 10.8.8.0 255.255.254.0   area 100 
+			network 10.8.10.0 255.255.254.0   area 100 
+			network 10.8.12.0 255.255.254.0   area 100 
+			network 10.8.14.0 255.255.254.0   area 100 
+			network 10.8.16.0 255.255.254.0   area 100 
+			network 10.8.18.0 255.255.254.0   area 100 
+			network 10.8.20.0 255.255.254.0   area 100 
+			network 10.8.22.0 255.255.254.0   area 100 
+			network 10.8.24.0 255.255.254.0   area 100 
+			network 10.8.26.0 255.255.254.0   area 100 
+			network 10.8.28.0 255.255.254.0   area 100 
+			network 10.8.30.0 255.255.254.0   area 100 
+			network 10.8.32.0 255.255.254.0   area 100 
+			network 10.8.34.0 255.255.254.0   area 100 
 
-    - R3 A0
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.6.0  255.255.254.0  area 0
-		> network 10.7.4.0  255.255.254.0  area 0
-		> network 10.7.12.0  255.255.254.0  area 0 
-		> end
+		 end
+```
+	- R5 A200
+```
+		 en
+		 conf t
+		 router ospf 1
+		 network 10.7.10.0  255.255.254.0  area 0
+			network 10.8.36.0 255.255.254.0   area 200 
+			network 10.8.38.0 255.255.254.0   area 200 
+			network 10.8.40.0 255.255.254.0   area 200 
+			network 10.8.42.0 255.255.254.0   area 200 
+			network 10.8.44.0 255.255.254.0   area 200 
+			network 10.8.46.0 255.255.254.0   area 200 
+			network 10.8.48.0 255.255.254.0   area 200 
+			network 10.8.50.0 255.255.254.0   area 200 
+			network 10.8.52.0 255.255.254.0   area 200 
+			network 10.8.54.0 255.255.254.0   area 200 
+			network 10.8.56.0 255.255.254.0   area 200 
+			network 10.8.58.0 255.255.254.0   area 200 
+			network 10.8.60.0 255.255.254.0   area 200 
+			network 10.8.62.0 255.255.254.0   area 200 
+			network 10.8.64.0 255.255.254.0   area 200 
+			network 10.8.66.0 255.255.254.0   area 200 
+			network 10.8.68.0 255.255.254.0   area 200 
+		 end
+```
+    - R6 A300
+```
+		 en
+		 conf t
+		 router ospf 1
+		 network 10.7.12.0  255.255.254.0  area 0
+		 network 10.7.8.0  255.255.254.0  area 0
+			network 10.8.70.0 255.255.254.0   area 300 
+			network 10.8.72.0 255.255.254.0   area 300 
+			network 10.8.74.0 255.255.254.0   area 300 
+			network 10.8.76.0 255.255.254.0   area 300 
+			network 10.8.78.0 255.255.254.0   area 300 
+			network 10.8.80.0 255.255.254.0   area 300 
+			network 10.8.82.0 255.255.254.0   area 300 
+			network 10.8.84.0 255.255.254.0   area 300 
+			network 10.8.86.0 255.255.254.0   area 300 
+			network 10.8.88.0 255.255.254.0   area 300 
+			network 10.8.90.0 255.255.254.0   area 300 
+			network 10.8.92.0 255.255.254.0   area 300 
+			network 10.8.94.0 255.255.254.0   area 300 
+			network 10.8.96.0 255.255.254.0   area 300 
+			network 10.8.98.0 255.255.254.0   area 300 
+			network 10.8.100.0 255.255.254.0   area 300 
+		 end
+```
+- Armar subredes por VLANS (las 50)[] 
+    -> probar con show int; show vlan
+    - Area 100
+        - R4 # 
+```
+		en 
+			conf t 
+			
+			int G0/0/1.100
+			encapsulation dot1q  100
+			ip address 10.8.0.1 255.255.254.0
+			no shut
 
-    - R4 A0 a100
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.2.0  255.255.254.0  area 0
-		> network 10.7.8.0  255.255.254.0  area 0
-		> network 10.8.0.0  255.255.254.0  area 100 // va todo el rango?
-		> end
+			int G0/0/1.102
+			encapsulation dot1q  102
+			ip address 10.8.2.1 255.255.254.0
+			no shut
 
-    - R5 A0 a100
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.10.0  255.255.254.0  area 0
-		> network 10.8.36.0  255.255.254.0  area 200 // va todo el rango?
-		> end
+			int G0/0/1.104
+			encapsulation dot1q  104
+			ip address 10.8.4.1 255.255.254.0
+			no shut
 
-    - R6 A0 a100
-		> en
-		> conf t
-		> router ospf id
-		> network 10.7.12.0  255.255.254.0  area 0
-		> network 10.7.8.0  255.255.254.0  area 0
-		> network 10.8.70.0  255.255.254.0  area 300 // va todo el rango?
-		> end
-    
+			int G0/0/1.106
+			encapsulation dot1q  106
+			ip address 10.8.6.1 255.255.254.0
+			no shut
+
+			int G0/0/1.108
+			encapsulation dot1q  108
+			ip address 10.8.8.1 255.255.254.0
+			no shut
+
+			int G0/0/1.110
+			encapsulation dot1q  110
+			ip address 10.8.10.1 255.255.254.0
+			no shut
+
+			int G0/0/1.112
+			encapsulation dot1q  112
+			ip address 10.8.12.1 255.255.254.0
+			no shut
+
+			int G0/0/1.114
+			encapsulation dot1q  114
+			ip address 10.8.14.1 255.255.254.0
+			no shut
+
+			int G0/0/1.116
+			encapsulation dot1q  116
+			ip address 10.8.16.1 255.255.254.0
+			no shut
+
+			int G0/0/1.118
+			encapsulation dot1q  118
+			ip address 10.8.18.1 255.255.254.0
+			no shut
+
+			int G0/0/1.120
+			encapsulation dot1q  120
+			ip address 10.8.20.1 255.255.254.0
+			no shut
+
+			int G0/0/1.122
+			encapsulation dot1q  122
+			ip address 10.8.22.1 255.255.254.0
+			no shut
+
+			int G0/0/1.124
+			encapsulation dot1q  124
+			ip address 10.8.24.1 255.255.254.0
+			no shut
+
+			int G0/0/1.126
+			encapsulation dot1q  126
+			ip address 10.8.26.1 255.255.254.0
+			no shut
+
+			int G0/0/1.128
+			encapsulation dot1q  128
+			ip address 10.8.28.1 255.255.254.0
+			no shut
+
+			int G0/0/1.130
+			encapsulation dot1q  130
+			ip address 10.8.30.1 255.255.254.0
+			no shut
+
+			int G0/0/1.132
+			encapsulation dot1q  132
+			ip address 10.8.32.1 255.255.254.0
+			no shut
+
+			int G0/0/1.134
+			encapsulation dot1q  134
+			ip address 10.8.34.1 255.255.254.0
+			no shut
+
+			end
+```
+        - SW1
+```
+			en 
+			conf t
+			vlan 100
+			int vlan 100
+			ip address 10.8.0.2 255.255.254.0
+			int fa0/2
+			switchport mode access
+			switchport access vlan 100
+			no shut
+
+			vlan 102
+			int vlan 102
+			ip address 10.8.2.2 255.255.254.0
+			int fa0/3
+			switchport mode access
+			switchport access vlan 102
+			no shut
+
+			vlan 104
+			int vlan 104
+			ip address 10.8.4.2 255.255.254.0
+			int fa0/4
+			switchport mode access
+			switchport access vlan 104
+			no shut
+
+			vlan 106
+			int vlan 106
+			ip address 10.8.6.2 255.255.254.0
+			int fa0/5
+			switchport mode access
+			switchport access vlan 106
+			no shut
+
+			vlan 108
+			int vlan 108
+			ip address 10.8.8.2 255.255.254.0
+			int fa0/6
+			switchport mode access
+			switchport access vlan 108
+			no shut
+
+			vlan 110
+			int vlan 110
+			ip address 10.8.10.2 255.255.254.0
+			int fa0/7
+			switchport mode access
+			switchport access vlan 110
+			no shut
+
+			vlan 112
+			int vlan 112
+			ip address 10.8.12.2 255.255.254.0
+			int fa0/8
+			switchport mode access
+			switchport access vlan 112
+			no shut
+
+			vlan 114
+			int vlan 114
+			ip address 10.8.14.2 255.255.254.0
+			int fa0/9
+			switchport mode access
+			switchport access vlan 114
+			no shut
+
+			vlan 116
+			int vlan 116
+			ip address 10.8.16.2 255.255.254.0
+			int fa0/10
+			switchport mode access
+			switchport access vlan 116
+			no shut
+
+			vlan 118
+			int vlan 118
+			ip address 10.8.18.2 255.255.254.0
+			int fa0/11
+			switchport mode access
+			switchport access vlan 118
+			no shut
+
+			vlan 120
+			int vlan 120
+			ip address 10.8.20.2 255.255.254.0
+			int fa0/12
+			switchport mode access
+			switchport access vlan 120
+			no shut
+
+			vlan 122
+			int vlan 122
+			ip address 10.8.22.2 255.255.254.0
+			int fa0/13
+			switchport mode access
+			switchport access vlan 122
+			no shut
+
+			vlan 124
+			int vlan 124
+			ip address 10.8.24.2 255.255.254.0
+			int fa0/14
+			switchport mode access
+			switchport access vlan 124
+			no shut
+
+			vlan 126
+			int vlan 126
+			ip address 10.8.26.2 255.255.254.0
+			int fa0/15
+			switchport mode access
+			switchport access vlan 126
+			no shut
+
+			vlan 128
+			int vlan 128
+			ip address 10.8.28.2 255.255.254.0
+			int fa0/16
+			switchport mode access
+			switchport access vlan 128
+			no shut
+
+			vlan 130
+			int vlan 130
+			ip address 10.8.30.2 255.255.254.0
+			int fa0/17
+			switchport mode access
+			switchport access vlan 130
+			no shut
+
+			vlan 132
+			int vlan 132
+			ip address 10.8.32.2 255.255.254.0
+			int fa0/18
+			switchport mode access
+			switchport access vlan 132
+			no shut
+
+			vlan 134
+			int vlan 134
+			ip address 10.8.34.2 255.255.254.0
+			int fa0/19
+			switchport mode access
+			switchport access vlan 134
+			no shut
+
+			
+			int fa0/1
+			switchport mode trunk
+			no shut
+			
+			end
+```
+
+
+		
+    - Area 300
+        - R6
+```
+			en 
+			conf t
+			int G0/0/1.370
+			encapsulation dot1q  370
+			ip address 10.8.70.1 255.255.254.0
+			no shut
+
+			int G0/0/1.372
+			encapsulation dot1q  372
+			ip address 10.8.72.1 255.255.254.0
+			no shut
+
+			int G0/0/1.374
+			encapsulation dot1q  374
+			ip address 10.8.74.1 255.255.254.0
+			no shut
+
+			int G0/0/1.376
+			encapsulation dot1q  376
+			ip address 10.8.76.1 255.255.254.0
+			no shut
+
+			int G0/0/1.378
+			encapsulation dot1q  378
+			ip address 10.8.78.1 255.255.254.0
+			no shut
+
+			int G0/0/1.380
+			encapsulation dot1q  380
+			ip address 10.8.80.1 255.255.254.0
+			no shut
+
+			int G0/0/1.382
+			encapsulation dot1q  382
+			ip address 10.8.82.1 255.255.254.0
+			no shut
+
+			int G0/0/1.384
+			encapsulation dot1q  384
+			ip address 10.8.84.1 255.255.254.0
+			no shut
+
+			int G0/0/1.386
+			encapsulation dot1q  386
+			ip address 10.8.86.1 255.255.254.0
+			no shut
+
+			int G0/0/1.388
+			encapsulation dot1q  388
+			ip address 10.8.88.1 255.255.254.0
+			no shut
+
+			int G0/0/1.390
+			encapsulation dot1q  390
+			ip address 10.8.90.1 255.255.254.0
+			no shut
+
+			int G0/0/1.392
+			encapsulation dot1q  392
+			ip address 10.8.92.1 255.255.254.0
+			no shut
+
+			int G0/0/1.394
+			encapsulation dot1q  394
+			ip address 10.8.94.1 255.255.254.0
+			no shut
+
+			int G0/0/1.396
+			encapsulation dot1q  396
+			ip address 10.8.96.1 255.255.254.0
+			no shut
+
+			int G0/0/1.398
+			encapsulation dot1q  398
+			ip address 10.8.98.1 255.255.254.0
+			no shut
+
+			int G0/0/1.400
+			encapsulation dot1q  400
+			ip address 10.8.100.1 255.255.254.0
+			no shut
+			
+			end
+```			
+        - SW2
+```
+			en 
+			conf t
+			
+			vlan 370
+			int vlan 370
+			ip address 10.8.70.2 255.255.254.0
+			int fa0/2
+			switchport mode access
+			switchport access vlan 370
+			no shut
+
+			vlan 372
+			int vlan 372
+			ip address 10.8.72.2 255.255.254.0
+			int fa0/3
+			switchport mode access
+			switchport access vlan 372
+			no shut
+
+			vlan 374
+			int vlan 374
+			ip address 10.8.74.2 255.255.254.0
+			int fa0/4
+			switchport mode access
+			switchport access vlan 374
+			no shut
+
+			vlan 376
+			int vlan 376
+			ip address 10.8.76.2 255.255.254.0
+			int fa0/5
+			switchport mode access
+			switchport access vlan 376
+			no shut
+
+			vlan 378
+			int vlan 378
+			ip address 10.8.78.2 255.255.254.0
+			int fa0/6
+			switchport mode access
+			switchport access vlan 378
+			no shut
+
+			vlan 380
+			int vlan 380
+			ip address 10.8.80.2 255.255.254.0
+			int fa0/7
+			switchport mode access
+			switchport access vlan 380
+			no shut
+
+			vlan 382
+			int vlan 382
+			ip address 10.8.82.2 255.255.254.0
+			int fa0/8
+			switchport mode access
+			switchport access vlan 382
+			no shut
+
+			vlan 384
+			int vlan 384
+			ip address 10.8.84.2 255.255.254.0
+			int fa0/9
+			switchport mode access
+			switchport access vlan 384
+			no shut
+
+			vlan 386
+			int vlan 386
+			ip address 10.8.86.2 255.255.254.0
+			int fa0/10
+			switchport mode access
+			switchport access vlan 386
+			no shut
+
+			vlan 388
+			int vlan 388
+			ip address 10.8.88.2 255.255.254.0
+			int fa0/11
+			switchport mode access
+			switchport access vlan 388
+			no shut
+
+			vlan 390
+			int vlan 390
+			ip address 10.8.90.2 255.255.254.0
+			int fa0/12
+			switchport mode access
+			switchport access vlan 390
+			no shut
+
+			vlan 392
+			int vlan 392
+			ip address 10.8.92.2 255.255.254.0
+			int fa0/13
+			switchport mode access
+			switchport access vlan 392
+			no shut
+
+			vlan 394
+			int vlan 394
+			ip address 10.8.94.2 255.255.254.0
+			int fa0/14
+			switchport mode access
+			switchport access vlan 394
+			no shut
+
+			vlan 396
+			int vlan 396
+			ip address 10.8.96.2 255.255.254.0
+			int fa0/15
+			switchport mode access
+			switchport access vlan 396
+			no shut
+
+			vlan 398
+			int vlan 398
+			ip address 10.8.98.2 255.255.254.0
+			int fa0/16
+			switchport mode access
+			switchport access vlan 398
+			no shut
+
+			vlan 400
+			int vlan 400
+			ip address 10.8.100.2 255.255.254.0
+			int fa0/17
+			switchport mode access
+			switchport access vlan 400
+			no shut
+
+		
+			int fa0/1
+			switchport mode trunk
+			no shut
+			
+			end
+```
+    - Area 200
+        - R5
+```
+			en 
+			conf t
+
+			int G0/0/1.236
+			encapsulation dot1q  236
+			ip address 10.8.36.1 255.255.254.0
+			no shut
+
+			int G0/0/1.238
+			encapsulation dot1q  238
+			ip address 10.8.38.1 255.255.254.0
+			no shut
+
+			int G0/0/1.240
+			encapsulation dot1q  240
+			ip address 10.8.40.1 255.255.254.0
+			no shut
+
+			int G0/0/1.242
+			encapsulation dot1q  242
+			ip address 10.8.42.1 255.255.254.0
+			no shut
+
+			int G0/0/1.244
+			encapsulation dot1q  244
+			ip address 10.8.44.1 255.255.254.0
+			no shut
+
+			int G0/0/1.246
+			encapsulation dot1q  246
+			ip address 10.8.46.1 255.255.254.0
+			no shut
+
+			int G0/0/1.248
+			encapsulation dot1q  248
+			ip address 10.8.48.1 255.255.254.0
+			no shut
+
+			int G0/0/1.250
+			encapsulation dot1q  250
+			ip address 10.8.50.1 255.255.254.0
+			no shut
+
+			int G0/0/1.252
+			encapsulation dot1q  252
+			ip address 10.8.52.1 255.255.254.0
+			no shut
+
+			int G0/0/1.254
+			encapsulation dot1q  254
+			ip address 10.8.54.1 255.255.254.0
+			no shut
+
+			int G0/0/1.256
+			encapsulation dot1q  256
+			ip address 10.8.56.1 255.255.254.0
+			no shut
+
+			int G0/0/1.258
+			encapsulation dot1q  258
+			ip address 10.8.58.1 255.255.254.0
+			no shut
+
+			int G0/0/1.260
+			encapsulation dot1q  260
+			ip address 10.8.60.1 255.255.254.0
+			no shut
+
+			int G0/0/1.262
+			encapsulation dot1q  262
+			ip address 10.8.62.1 255.255.254.0
+			no shut
+
+			int G0/0/1.264
+			encapsulation dot1q  264
+			ip address 10.8.64.1 255.255.254.0
+			no shut
+
+			int G0/0/1.266
+			encapsulation dot1q  266
+			ip address 10.8.66.1 255.255.254.0
+			no shut
+
+			int G0/0/1.268
+			encapsulation dot1q  268
+			ip address 10.8.68.1 255.255.254.0
+			no shut
+
+			
+			end
+```
+        - SW3
+```
+			en 
+			conf t
+
+			vlan 236
+			int vlan 236
+			ip address 10.8.36.2 255.255.254.0
+			int fa0/2
+			switchport mode access
+			switchport access vlan 236
+			no shut
+
+			vlan 238
+			int vlan 238
+			ip address 10.8.38.2 255.255.254.0
+			int fa0/3
+			switchport mode access
+			switchport access vlan 238
+			no shut
+
+			vlan 240
+			int vlan 240
+			ip address 10.8.40.2 255.255.254.0
+			int fa0/4
+			switchport mode access
+			switchport access vlan 240
+			no shut
+
+			vlan 242
+			int vlan 242
+			ip address 10.8.42.2 255.255.254.0
+			int fa0/5
+			switchport mode access
+			switchport access vlan 242
+			no shut
+
+			vlan 244
+			int vlan 244
+			ip address 10.8.44.2 255.255.254.0
+			int fa0/6
+			switchport mode access
+			switchport access vlan 244
+			no shut
+
+			vlan 246
+			int vlan 246
+			ip address 10.8.46.2 255.255.254.0
+			int fa0/7
+			switchport mode access
+			switchport access vlan 246
+			no shut
+
+			vlan 248
+			int vlan 248
+			ip address 10.8.48.2 255.255.254.0
+			int fa0/8
+			switchport mode access
+			switchport access vlan 248
+			no shut
+
+			vlan 250
+			int vlan 250
+			ip address 10.8.50.2 255.255.254.0
+			int fa0/9
+			switchport mode access
+			switchport access vlan 250
+			no shut
+
+			vlan 252
+			int vlan 252
+			ip address 10.8.52.2 255.255.254.0
+			int fa0/10
+			switchport mode access
+			switchport access vlan 252
+			no shut
+
+			vlan 254
+			int vlan 254
+			ip address 10.8.54.2 255.255.254.0
+			int fa0/11
+			switchport mode access
+			switchport access vlan 254
+			no shut
+
+			vlan 256
+			int vlan 256
+			ip address 10.8.56.2 255.255.254.0
+			int fa0/12
+			switchport mode access
+			switchport access vlan 256
+			no shut
+
+			vlan 258
+			int vlan 258
+			ip address 10.8.58.2 255.255.254.0
+			int fa0/13
+			switchport mode access
+			switchport access vlan 258
+			no shut
+
+			vlan 260
+			int vlan 260
+			ip address 10.8.60.2 255.255.254.0
+			int fa0/14
+			switchport mode access
+			switchport access vlan 260
+			no shut
+
+			vlan 262
+			int vlan 262
+			ip address 10.8.62.2 255.255.254.0
+			int fa0/15
+			switchport mode access
+			switchport access vlan 262
+			no shut
+
+			vlan 264
+			int vlan 264
+			ip address 10.8.64.2 255.255.254.0
+			int fa0/16
+			switchport mode access
+			switchport access vlan 264
+			no shut
+
+			vlan 266
+			int vlan 266
+			ip address 10.8.66.2 255.255.254.0
+			int fa0/17
+			switchport mode access
+			switchport access vlan 266
+			no shut
+
+			vlan 268
+			int vlan 268
+			ip address 10.8.68.2 255.255.254.0
+			int fa0/18
+			switchport mode access
+			switchport access vlan 268
+			no shut
+		
+			int fa0/1
+			switchport mode trunk
+			no shut
+			
+			end
+```
+
 - Coenctar y dar ip fija a servers [] 
 - Coenctar y dar ip fija a Nodos [] 
 - Dar IP a terminales por  [] 
-- Armar subredes por VLANS (las 50)[] 
+
 
 	
 ## 6. Agregar ACL del TP []   
