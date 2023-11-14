@@ -49,14 +49,14 @@
 			10.8.70.0/23 - 10.8.100.0/23
 			
 			
-## 5. asignar datos al diagrama en el emulador [-]
+## 5. asignar datos al diagrama en el emulador [X]
 
 - Crear routers, switches, servers y terminales [X]
 - Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
 - Decidir, Todas VLANS o agrear mas routers y una subred por interfaz? [X] VLANS
 - Discutir,Agegar routers wireless para estacioens mobiles? [X] NO
 - Connectar y dar Ip routers [X] 
-- Connectar y crear areas OSPF  [-] 
+- Connectar y crear areas OSPF  [X]
     - // probar:   >show ip ospf interface;  >   
   	- R1 A0
 ```
@@ -167,7 +167,7 @@
 			network 10.8.100.0 255.255.254.0   area 300 
 		 end
 ```
-- Armar subredes por VLANS (las 50)[] 
+- Armar subredes por VLANS (las 50)[X]
     -> probar con show int; show vlan
     - Area 100
         - R4 # 
@@ -894,9 +894,9 @@
 			end
 ```
 
-- dar ip por dchp a temrinales (lso fijos configurados a mano"
+- dar ip por dchp a temrinales (lso fijos configurados a mano" [X]
 
-    -Area 100
+    -Area 100 
         - R4
 ```		
 			en
@@ -1232,11 +1232,17 @@
 ```
 
 
-- instalar ftp en server
+- instalar ftp en server [X]
+    - ya esta en lso server el tft
+    - se puede ussar el comendo "tftp ip-de-server"
+    - donde nos pide user y pass estos son
+        - user: cisco
+        - pass: cisco
+      Ahi poderemos explorar y tambien se puede usar copy o ftp con el mismo user y pass
 -
 
 	
-## 6. Agregar ACL del TP []   
+## 6. Agregar ACL del TP [-]   
 - La estación de trabajo PC100 y el servidor de archivos Server100 se encuentran en la subred de administración. Cualquier dispositivo en la subred de administración debe tener acceso a cualquier otro dispositivo en cualquier parte de la red. []  
 
 - Las estaciones de trabajo en las subredes del área 200 y 300 no deben tener acceso a ningún dispositivo fuera de su subred, salvo para interconectarse con el servidor de archivos Server100.- Cada router debe poder hacer telnet en los demás routers y tener acceso a cualquier dispositivo en la red. []
