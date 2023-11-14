@@ -894,10 +894,346 @@
 			end
 ```
 
-- Coenctar y dar ip fija a servers [] 
-- Coenctar y dar ip fija a Nodos [] 
-- Dar IP a terminales por  [] 
+- dar ip por dchp a temrinales (lso fijos configurados a mano"
 
+    -Area 100
+        - R4
+```		
+			en
+			conf t
+			
+			int vlan 100
+			ip dhcp excluded-address 10.8.0.0 10.8.0.4
+			ip dhcp pool d-vlan100
+			network 10.8.0.0 255.255.254.0
+			default-router 10.8.0.1
+
+			int vlan 102
+			ip dhcp excluded-address 10.8.2.0 10.8.2.4
+			ip dhcp pool d-vlan102
+			network 10.8.2.0 255.255.254.0
+			default-router 10.8.2.1
+
+			int vlan 104
+			ip dhcp excluded-address 10.8.4.0 10.8.4.4
+			ip dhcp pool d-vlan104
+			network 10.8.4.0 255.255.254.0
+			default-router 10.8.4.1
+
+			int vlan 106
+			ip dhcp excluded-address 10.8.6.0 10.8.6.4
+			ip dhcp pool d-vlan106
+			network 10.8.6.0 255.255.254.0
+			default-router 10.8.6.1
+
+			int vlan 108
+			ip dhcp excluded-address 10.8.8.0 10.8.8.4
+			ip dhcp pool d-vlan108
+			network 10.8.8.0 255.255.254.0
+			default-router 10.8.8.1
+
+			int vlan 110
+			ip dhcp excluded-address 10.8.10.0 10.8.10.4
+			ip dhcp pool d-vlan110
+			network 10.8.10.0 255.255.254.0
+			default-router 10.8.10.1
+
+			int vlan 112
+			ip dhcp excluded-address 10.8.12.0 10.8.12.4
+			ip dhcp pool d-vlan112
+			network 10.8.12.0 255.255.254.0
+			default-router 10.8.12.1
+
+			int vlan 114
+			ip dhcp excluded-address 10.8.14.0 10.8.14.4
+			ip dhcp pool d-vlan114
+			network 10.8.14.0 255.255.254.0
+			default-router 10.8.14.1
+
+			int vlan 116
+			ip dhcp excluded-address 10.8.16.0 10.8.16.4
+			ip dhcp pool d-vlan116
+			network 10.8.16.0 255.255.254.0
+			default-router 10.8.16.1
+
+			int vlan 118
+			ip dhcp excluded-address 10.8.18.0 10.8.18.4
+			ip dhcp pool d-vlan118
+			network 10.8.18.0 255.255.254.0
+			default-router 10.8.18.1
+
+			int vlan 120
+			ip dhcp excluded-address 10.8.20.0 10.8.20.4
+			ip dhcp pool d-vlan120
+			network 10.8.20.0 255.255.254.0
+			default-router 10.8.20.1
+
+			int vlan 122
+			ip dhcp excluded-address 10.8.22.0 10.8.22.4
+			ip dhcp pool d-vlan122
+			network 10.8.22.0 255.255.254.0
+			default-router 10.8.22.1
+
+			int vlan 124
+			ip dhcp excluded-address 10.8.24.0 10.8.24.4
+			ip dhcp pool d-vlan124
+			network 10.8.24.0 255.255.254.0
+			default-router 10.8.24.1
+
+			int vlan 126
+			ip dhcp excluded-address 10.8.26.0 10.8.26.4
+			ip dhcp pool d-vlan126
+			network 10.8.26.0 255.255.254.0
+			default-router 10.8.26.1
+
+			int vlan 128
+			ip dhcp excluded-address 10.8.28.0 10.8.28.4
+			ip dhcp pool d-vlan128
+			network 10.8.28.0 255.255.254.0
+			default-router 10.8.28.1
+
+			int vlan 130
+			ip dhcp excluded-address 10.8.30.0 10.8.30.4
+			ip dhcp pool d-vlan130
+			network 10.8.30.0 255.255.254.0
+			default-router 10.8.30.1
+
+			int vlan 132
+			ip dhcp excluded-address 10.8.32.0 10.8.32.4
+			ip dhcp pool d-vlan132
+			network 10.8.32.0 255.255.254.0
+			default-router 10.8.32.1
+
+			int vlan 134
+			ip dhcp excluded-address 10.8.34.0 10.8.34.4
+			ip dhcp pool d-vlan134
+			network 10.8.34.0 255.255.254.0
+			default-router 10.8.34.1
+
+
+			end 
+```
+
+    - Area 200
+        -R5
+```
+			en
+			conf t
+			
+			int vlan 236
+			ip dhcp excluded-address 10.8.36.0 10.8.36.4
+			ip dhcp pool d-vlan200
+			network 10.8.36.0 255.255.254.0
+			default-router 10.8.36.1
+
+			int vlan 238
+			ip dhcp excluded-address 10.8.38.0 10.8.38.4
+			ip dhcp pool d-vlan202
+			network 10.8.38.0 255.255.254.0
+			default-router 10.8.38.1
+
+			int vlan 240
+			ip dhcp excluded-address 10.8.40.0 10.8.40.4
+			ip dhcp pool d-vlan204
+			network 10.8.40.0 255.255.254.0
+			default-router 10.8.40.1
+
+			int vlan 242
+			ip dhcp excluded-address 10.8.42.0 10.8.42.4
+			ip dhcp pool d-vlan206
+			network 10.8.42.0 255.255.254.0
+			default-router 10.8.42.1
+
+			int vlan 244
+			ip dhcp excluded-address 10.8.44.0 10.8.44.4
+			ip dhcp pool d-vlan208
+			network 10.8.44.0 255.255.254.0
+			default-router 10.8.44.1
+
+			int vlan 246
+			ip dhcp excluded-address 10.8.46.0 10.8.46.4
+			ip dhcp pool d-vlan210
+			network 10.8.46.0 255.255.254.0
+			default-router 10.8.46.1
+
+			int vlan 248
+			ip dhcp excluded-address 10.8.48.0 10.8.48.4
+			ip dhcp pool d-vlan212
+			network 10.8.48.0 255.255.254.0
+			default-router 10.8.48.1
+
+			int vlan 250
+			ip dhcp excluded-address 10.8.50.0 10.8.50.4
+			ip dhcp pool d-vlan214
+			network 10.8.50.0 255.255.254.0
+			default-router 10.8.50.1
+
+			int vlan 252
+			ip dhcp excluded-address 10.8.52.0 10.8.52.4
+			ip dhcp pool d-vlan216
+			network 10.8.52.0 255.255.254.0
+			default-router 10.8.52.1
+
+			int vlan 254
+			ip dhcp excluded-address 10.8.54.0 10.8.54.4
+			ip dhcp pool d-vlan218
+			network 10.8.54.0 255.255.254.0
+			default-router 10.8.54.1
+
+			int vlan 256
+			ip dhcp excluded-address 10.8.56.0 10.8.56.4
+			ip dhcp pool d-vlan220
+			network 10.8.56.0 255.255.254.0
+			default-router 10.8.56.1
+
+			int vlan 258
+			ip dhcp excluded-address 10.8.58.0 10.8.58.4
+			ip dhcp pool d-vlan222
+			network 10.8.58.0 255.255.254.0
+			default-router 10.8.58.1
+
+			int vlan 260
+			ip dhcp excluded-address 10.8.60.0 10.8.60.4
+			ip dhcp pool d-vlan224
+			network 10.8.60.0 255.255.254.0
+			default-router 10.8.60.1
+
+			int vlan 262
+			ip dhcp excluded-address 10.8.62.0 10.8.62.4
+			ip dhcp pool d-vlan226
+			network 10.8.62.0 255.255.254.0
+			default-router 10.8.62.1
+
+			int vlan 264
+			ip dhcp excluded-address 10.8.64.0 10.8.64.4
+			ip dhcp pool d-vlan228
+			network 10.8.64.0 255.255.254.0
+			default-router 10.8.64.1
+
+			int vlan 266
+			ip dhcp excluded-address 10.8.66.0 10.8.66.4
+			ip dhcp pool d-vlan230
+			network 10.8.66.0 255.255.254.0
+			default-router 10.8.66.1
+
+			int vlan 268
+			ip dhcp excluded-address 10.8.68.0 10.8.68.4
+			ip dhcp pool d-vlan232
+			network 10.8.68.0 255.255.254.0
+			default-router 10.8.68.1
+
+
+			
+			end
+```
+
+    - Area 300
+        - R6
+```		
+		en
+		conf t
+		int vlan 370
+		ip dhcp excluded-address 10.8.70.0 10.8.70.4
+		ip dhcp pool d-vlan300
+		network 10.8.70.0 255.255.254.0
+		default-router 10.8.70.1
+
+		int vlan 372
+		ip dhcp excluded-address 10.8.72.0 10.8.72.4
+		ip dhcp pool d-vlan302
+		network 10.8.72.0 255.255.254.0
+		default-router 10.8.72.1
+
+		int vlan 374
+		ip dhcp excluded-address 10.8.74.0 10.8.74.4
+		ip dhcp pool d-vlan304
+		network 10.8.74.0 255.255.254.0
+		default-router 10.8.74.1
+
+		int vlan 376
+		ip dhcp excluded-address 10.8.76.0 10.8.76.4
+		ip dhcp pool d-vlan306
+		network 10.8.76.0 255.255.254.0
+		default-router 10.8.76.1
+
+		int vlan 378
+		ip dhcp excluded-address 10.8.78.0 10.8.78.4
+		ip dhcp pool d-vlan308
+		network 10.8.78.0 255.255.254.0
+		default-router 10.8.78.1
+
+		int vlan 380
+		ip dhcp excluded-address 10.8.80.0 10.8.80.4
+		ip dhcp pool d-vlan310
+		network 10.8.80.0 255.255.254.0
+		default-router 10.8.80.1
+
+		int vlan 382
+		ip dhcp excluded-address 10.8.82.0 10.8.82.4
+		ip dhcp pool d-vlan312
+		network 10.8.82.0 255.255.254.0
+		default-router 10.8.82.1
+
+		int vlan 384
+		ip dhcp excluded-address 10.8.84.0 10.8.84.4
+		ip dhcp pool d-vlan314
+		network 10.8.84.0 255.255.254.0
+		default-router 10.8.84.1
+
+		int vlan 386
+		ip dhcp excluded-address 10.8.86.0 10.8.86.4
+		ip dhcp pool d-vlan316
+		network 10.8.86.0 255.255.254.0
+		default-router 10.8.86.1
+
+		int vlan 388
+		ip dhcp excluded-address 10.8.88.0 10.8.88.4
+		ip dhcp pool d-vlan318
+		network 10.8.88.0 255.255.254.0
+		default-router 10.8.88.1
+
+		int vlan 390
+		ip dhcp excluded-address 10.8.90.0 10.8.90.4
+		ip dhcp pool d-vlan320
+		network 10.8.90.0 255.255.254.0
+		default-router 10.8.90.1
+
+		int vlan 392
+		ip dhcp excluded-address 10.8.92.0 10.8.92.4
+		ip dhcp pool d-vlan322
+		network 10.8.92.0 255.255.254.0
+		default-router 10.8.92.1
+
+		int vlan 394
+		ip dhcp excluded-address 10.8.94.0 10.8.94.4
+		ip dhcp pool d-vlan324
+		network 10.8.94.0 255.255.254.0
+		default-router 10.8.94.1
+
+		int vlan 396
+		ip dhcp excluded-address 10.8.96.0 10.8.96.4
+		ip dhcp pool d-vlan326
+		network 10.8.96.0 255.255.254.0
+		default-router 10.8.96.1
+
+		int vlan 398
+		ip dhcp excluded-address 10.8.98.0 10.8.98.4
+		ip dhcp pool d-vlan328
+		network 10.8.98.0 255.255.254.0
+		default-router 10.8.98.1
+
+		int vlan 400
+		ip dhcp excluded-address 10.8.100.0 10.8.100.4
+		ip dhcp pool d-vlan330
+		network 10.8.100.0 255.255.254.0
+		default-router 10.8.100.1
+
+		end
+```
+
+
+- instalar ftp en server
+-
 
 	
 ## 6. Agregar ACL del TP []   
