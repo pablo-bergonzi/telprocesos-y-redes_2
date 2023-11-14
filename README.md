@@ -39,26 +39,26 @@
 
 
 ## 4. Asignacion de subredes[X]
-   * Area 0:
+### Area 0:
 			10.7.0.0/23- 10.7.12.0/23
-   * Area 100:
+### Area 100:
 			10.8.0.0/23 - 10.8.34.0/23
-   * Area 200:
+### Area 200:
 			10.8.36.0/23 - 10.8.68.0/23
-   * Area 300:
+### Area 300:
 			10.8.70.0/23 - 10.8.100.0/23
 			
 			
 ## 5. asignar datos al diagrama en el emulador [X]
 
-- Crear routers, switches, servers y terminales [X]
-- Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
-- Decidir, Todas VLANS o agrear mas routers y una subred por interfaz? [X] VLANS
-- Discutir,Agegar routers wireless para estacioens mobiles? [X] NO
-- Connectar y dar Ip routers [X] 
-- Connectar y crear areas OSPF  [X]
+### Crear routers, switches, servers y terminales [X]
+### Como solo va haber limitadas maquinas documentadas en que area y conectada a donde van a  estar las estaciones de cada subred (conexiones, areas, etc)[X]
+### Decidir, Todas VLANS o agrear mas routers y una subred por interfaz? [X] VLANS
+### Discutir,Agegar routers wireless para estacioens mobiles? [X] NO
+### Connectar y dar Ip routers [X] 
+### Connectar y crear areas OSPF  [X]
     - // probar:   >show ip ospf interface;  >   
-  	- R1 A0
+#### R1 A0
 ```
                 en
                 conf t
@@ -69,7 +69,7 @@
                 end
 ```
  
-    - R2 A0
+#### R2 A0
 ```
                 en
                 conf t
@@ -79,7 +79,7 @@
                 network 10.7.10.0  255.255.254.0  area 0
                 end
 ```
-	- R3 A0
+#### R3 A0
 ```
 		 en
 		 conf t
@@ -89,7 +89,7 @@
 		 network 10.7.12.0  255.255.254.0  area 0
 ```
 		 end
-	- R4 A0 A100
+#### R4 A100
 ```
 		 en
 		 conf t
@@ -117,7 +117,7 @@
 
 		 end
 ```
-	- R5 A200
+#### R5 A200
 ```
 		 en
 		 conf t
@@ -142,7 +142,7 @@
 			network 10.8.68.0 255.255.254.0   area 200 
 		 end
 ```
-    - R6 A300
+#### R6 A300
 ```
 		 en
 		 conf t
@@ -167,10 +167,10 @@
 			network 10.8.100.0 255.255.254.0   area 300 
 		 end
 ```
-- Armar subredes por VLANS (las 50)[X]
+### Armar subredes por VLANS (las 50)[X]
     -> probar con show int; show vlan
-    - Area 100
-        - R4 # 
+#### Area 100
+#####   R4 # 
 ```
 		en 
 			conf t 
@@ -267,7 +267,7 @@
 
 			end
 ```
-        - SW1
+#####  SW1
 ```
 			en 
 			conf t
@@ -425,8 +425,8 @@
 
 
 		
-    - Area 300
-        - R6
+#### Area 300
+#####  R6
 ```
 			en 
 			conf t
@@ -512,7 +512,7 @@
 			
 			end
 ```			
-        - SW2
+#####  SW2
 ```
 			en 
 			conf t
@@ -652,8 +652,8 @@
 			
 			end
 ```
-    - Area 200
-        - R5
+####  Area 200
+#####  R5
 ```
 			en 
 			conf t
@@ -746,7 +746,7 @@
 			
 			end
 ```
-        - SW3
+#####  SW3
 ```
 			en 
 			conf t
@@ -894,10 +894,10 @@
 			end
 ```
 
-- dar ip por dchp a temrinales (lso fijos configurados a mano" [X]
+### dar ip por dchp a temrinales (lso fijos configurados a mano" [X]
 
-    -Area 100 
-        - R4
+#### Area 100 
+#####   R4
 ```		
 			en
 			conf t
@@ -1014,8 +1014,8 @@
 			end 
 ```
 
-    - Area 200
-        -R5
+#### Area 200
+#####  R5
 ```
 			en
 			conf t
@@ -1127,8 +1127,8 @@
 			end
 ```
 
-    - Area 300
-        - R6
+#### Area 300
+#####   R6
 ```		
 		en
 		conf t
@@ -1232,14 +1232,15 @@
 ```
 
 
-- instalar ftp en server [X]
+### instalar ftp en server [X]
     - ya esta en lso server el tft
     - se puede ussar el comendo "tftp ip-de-server"
     - donde nos pide user y pass estos son
         - user: cisco
         - pass: cisco
       Ahi poderemos explorar y tambien se puede usar copy o ftp con el mismo user y pass
--
+
+**en la toploifa solo ahy 3 subredes por area pero esta el switch y el router preparado, con agregar un hub en cada boca del switch y a ese hub conectar las temrinales se incorporarian a sus repsectivas subredes (1 por witchport del hub menos F0/0" y el resto a traves del router como router on stick conectado al truck del switch las redes extra estaria online **
 
 	
 ## 6. Agregar ACL del TP [-]   
@@ -1249,11 +1250,9 @@
 
 - Se solicita escriba un corto resumen del propósito de cada control de acceso, las interfaces en las que se utilizarán y la dirección del tráfico. []
 
-	
-	
-## 7. Instalar y configurar TFTF en los servers como dice el TP [] 
 
-## 8. Hacer pruebas []   
+
+## 7. Hacer pruebas []   
   
 - Hacer telnet entre ruters de diferentes áreas 	CON ÉXITO  [] 
 - Hacer telnet de PC300 al router del área 200  	BLOQUEADO  [] 
@@ -1270,7 +1269,7 @@
 - Hacer ping del router del área 300 a PC200, Nodo Centro y Server200	CON ÉXITO  [] 
 
 	
-## 9.  Hacer docuemntacion final mencionada en el TP[]
+## 8.  Hacer docuemntacion final mencionada en el TP[]
 
 
 # Biblio
