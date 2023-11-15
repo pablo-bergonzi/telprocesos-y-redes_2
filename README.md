@@ -1230,6 +1230,126 @@
 
 		end
 ```
+### setup password routers
+
+#### Area 0
+##### R1
+
+```
+        en
+        conf t
+        username test priv 15 secret xxxxx
+
+        line vty 0 4
+        password pass001-ABC
+        login
+        
+        exit
+        enable secret pass001-ABC
+        do write memory
+
+```
+
+##### R2
+
+```     
+en
+        conf t
+        line vty 0 4
+        password pass002-BCD
+        login
+        
+        exit
+        enable secret pass002-BCD
+        do write memory
+
+```
+
+##### R3
+
+```    
+ en
+        conf t
+        line vty 0 4
+        password pass003-ABC
+        login
+        
+        exit
+        enable secret pass003-CDB
+        do write memory
+    
+
+```
+
+#### Area 100
+
+##### R4
+
+```     
+en
+        conf t
+        line vty 0 4
+        password pass104-ABC
+        login
+        
+        exit
+        enable secret pass104-ABC
+        do write memory
+        
+
+```
+
+#### Area 200
+
+##### R5
+
+```     
+en
+        conf t
+        line vty 0 4
+        password pass205-ABC
+        login
+        
+        exit
+        enable secret pass205-ABC
+        do write memory
+    
+
+```
+#### Area 300
+
+##### R6
+
+```     
+en
+        conf t
+        line vty 0 4
+        password pass306-ABC
+        login
+        
+        exit
+        enable secret pass306-ABC
+        do write memory
+       
+
+```
+
+###### psswds
+- R1:
+pass001-ABC
+- R2:
+pass002-BCD
+- R3:
+pass003-ABC
+- R4:
+pass104-ABC
+- R5:
+pass205-ABC
+- R6:
+pass306-ABC
+
+
+ 
 
 
 ### instalar ftp en server [X]
@@ -1240,7 +1360,8 @@
         - pass: cisco
       Ahi poderemos explorar y tambien se puede usar copy o ftp con el mismo user y pass
 
-**en la toploifa solo ahy 3 subredes por area pero esta el switch y el router preparado, con agregar un hub en cada boca del switch y a ese hub conectar las temrinales se incorporarian a sus repsectivas subredes (1 por witchport del hub menos F0/0" y el resto a traves del router como router on stick conectado al truck del switch las redes extra estaria online **
+
+**en la toploiga solo ahy 3 subredes por area pero esta el switch y el router preparado, con agregar un hub en cada boca del switch y a ese hub conectar las temrinales se incorporarian a sus repsectivas subredes (1 por witchport del hub menos F0/0" y el resto a traves del router como router on stick conectado al truck del switch las redes extra estaria online **
 
 	
 ## 6. Agregar ACL del TP [-]   
