@@ -1271,7 +1271,7 @@ en
  en
         conf t
         line vty 0 4
-        password pass003-ABC
+        password pass003-CDB
         login
         
         exit
@@ -1334,13 +1334,14 @@ en
 
 ```
 
-###### psswds
+###### Passwords routers
+
 - R1:
 pass001-ABC
 - R2:
 pass002-BCD
 - R3:
-pass003-ABC
+pass003-CDB
 - R4:
 pass104-ABC
 - R5:
@@ -1349,8 +1350,8 @@ pass205-ABC
 pass306-ABC
 
 
- 
-# ACL en R4
+### ACL setup 
+##### ACL en R4
 enable
 configure terminal
 ip access-list standard acl100
@@ -1365,31 +1366,75 @@ show interfaces GigabitEthernet0/0/1.100
 write memory
 
 
-# ACL en R5
+##### ACL en R5
 enable
 configure terminal
-ip access-list standard allow-server100
-permit 10.8.0.3
+! este bloque repetir para todas als subint
+ip access-list extended only-to-100
+permit ip any 10.8.0.0 0.0.1.255
+exit
+int g0/0/1.236
+!
+ip access-group only-to-100 in
+exit
+ip access-list extended only-to-serv100
+permit ip any host 10.8.0.3
+exit
+int g0/0/0
+ip access-group only-to-serv100 out
+exit
+int g0/0/0
+no ip access-group only-to-serv100 out
+ip access-group only-to-serv100 out
+exit
 
-interface GigabitEthernet0/0/1.236
-ip access-group allow-server100 out
+ ip inspect name ins-all tcp
 
-show access-lists
-show interfaces GigabitEthernet0/0/1.236
+ ip inspect name ins-all udp
+
+ ip inspect name ins-all telnet
+
+ ip inspect name ins-all http
+
+ ip inspect name ins-all icmp
+int g0/0/0
+ip inspect ins-all in
 
 write memory
 
-# ACL en R6
+#####  ACL en R6
 enable
 configure terminal
-ip access-list standard allow-server100
-permit 10.8.0.3
+! este bloque repetir para todas als subint
+ip access-list extended only-to-100
+permit ip any 10.8.0.0 0.0.1.255
+exit
+int g0/0/1.370
+!
+ip access-group only-to-100 in
+exit
+ip access-list extended only-to-serv100
+permit ip any host 10.8.0.3
+exit
+int g0/0/0
+ip access-group only-to-serv100 out
+exit
+int g0/0/0
+no ip access-group only-to-serv100 out
+ip access-group only-to-serv100 out
+exit
 
-interface GigabitEthernet0/0/1.370
-ip access-group allow-server100 out
+ ip inspect name ins-all tcp
 
-show access-lists
-show interfaces GigabitEthernet0/0/1.370
+ ip inspect name ins-all udp
+
+ ip inspect name ins-all telnet
+
+ ip inspect name ins-all http
+
+ ip inspect name ins-all icmp
+int g0/0/0
+ip inspect ins-all in
 
 write memory
 
@@ -1405,7 +1450,7 @@ write memory
 **en la toploiga solo ahy 3 subredes por area pero esta el switch y el router preparado, con agregar un hub en cada boca del switch y a ese hub conectar las temrinales se incorporarian a sus repsectivas subredes (1 por witchport del hub menos F0/0" y el resto a traves del router como router on stick conectado al truck del switch las redes extra estaria online **
 
 	
-## 6. Agregar ACL del TP [-]   
+## 6. REglas de Agregar ACL del TP [-]   
 - La estación de trabajo PC100 y el servidor de archivos Server100 se encuentran en la subred de administración. Cualquier dispositivo en la subred de administración debe tener acceso a cualquier otro dispositivo en cualquier parte de la red. []  
 
 - Las estaciones de trabajo en las subredes del área 200 y 300 no deben tener acceso a ningún dispositivo fuera de su subred, salvo para interconectarse con el servidor de archivos Server100.- Cada router debe poder hacer telnet en los demás routers y tener acceso a cualquier dispositivo en la red. []
@@ -1416,19 +1461,19 @@ write memory
 
 ## 7. Hacer pruebas []   
   
-- Hacer telnet entre ruters de diferentes áreas 	CON ÉXITO  [] 
-- Hacer telnet de PC300 al router del área 200  	BLOQUEADO  [] 
-- Hacer telnet de PC200 al router del área 300 	BLOQUEADO [] 
+- Hacer telnet del Server100 a todos los routers	CON ÉXITO []
+- Hacer ping de PC100 a PC200, Nodo Centro, PC300 y Nodo Este	CON ÉXITO  []
 - Hacer telnet de PC100 y Nodo Oeste a los routers del área 200 y 300 	CON ÉXITO [] 
-- Hacer telnet del Server100 a todos los routers	CON ÉXITO 
-- Hacer ping de PC200, Nodo Centro, PC300 y Nodo Este al servidor de arch 100 	CON ÉXITO [] 
-- Hacer ping de PC200 a Nodo Centro	BLOQUEADO  [] 
-- Hacer ping de PC300 a Nodo Este	BLOQUEADO  [] 
+- Hacer telnet de PC200 al router del área 300 	BLOQUEADO [] 
 - Hacer ping de PC200 a Nodo Este	CON EXITO [] 
-- Hacer ping de PC300 a Nodo Centro	CON EXITO  [] 
-- Hacer ping de PC100 a PC200, Nodo Centro, PC300 y Nodo Este	CON ÉXITO  [] 
+- Hacer ping de PC200, Nodo Centro, PC300 y Nodo Este al servidor de arch 100 	CON ÉXITO [] 
+- Hacer ping de PC200 a Nodo Centro	BLOQUEADO  []
+- Hacer ping de PC300 a Nodo Este	BLOQUEADO  [] 
+- Hacer ping de PC300 a Nodo Centro	CON EXITO  []
+- Hacer telnet de PC300 al router del área 200  	BLOQUEADO  []  
 - Hacer ping del router del área 200 a PC300, Nodo Este y Server300	CON ÉXITO  [] 
 - Hacer ping del router del área 300 a PC200, Nodo Centro y Server200	CON ÉXITO  [] 
+- Hacer telnet entre ruters de diferentes áreas 	CON ÉXITO  []
 
 	
 ## 8.  Hacer docuemntacion final mencionada en el TP[]
