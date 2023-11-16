@@ -1369,14 +1369,15 @@ write memory
 ##### ACL en R5
 enable
 configure terminal
-! este bloque repetir para todas als subint
+
 ip access-list extended only-to-100
 permit ip any 10.8.0.0 0.0.1.255
 exit
+! este bloque repetir para todas als subint
 int g0/0/1.236
-!
 ip access-group only-to-100 in
 exit
+!
 ip access-list extended only-to-serv100
 permit ip any host 10.8.0.3
 exit
@@ -1402,14 +1403,14 @@ write memory
 #####  ACL en R6
 enable
 configure terminal
-! este bloque repetir para todas als subint
 ip access-list extended only-to-100
 permit ip any 10.8.0.0 0.0.1.255
 exit
+! este bloque repetir para todas als subint
 int g0/0/1.370
-!
 ip access-group only-to-100 in
 exit
+!
 ip access-list extended only-to-serv100
 permit ip any host 10.8.0.3
 exit
