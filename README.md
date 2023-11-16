@@ -1372,6 +1372,8 @@ configure terminal
 
 ip access-list extended only-to-100
 permit ip any 10.8.0.0 0.0.1.255
+permit udp any any eq bootps
+permit udp any any eq bootpc
 exit
 ! este bloque repetir para todas als subint
 int g0/0/1.236
@@ -1405,6 +1407,8 @@ enable
 configure terminal
 ip access-list extended only-to-100
 permit ip any 10.8.0.0 0.0.1.255
+permit udp any any eq bootps
+permit udp any any eq bootpc
 exit
 ! este bloque repetir para todas als subint
 int g0/0/1.370
