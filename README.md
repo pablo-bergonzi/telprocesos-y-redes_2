@@ -1350,7 +1350,48 @@ pass306-ABC
 
 
  
+# ACL en R4
+enable
+configure terminal
+ip access-list standard acl100
+permit any
 
+interface GigabitEthernet0/0/1.100
+ip access-group acl100 out
+
+show access-lists
+show interfaces GigabitEthernet0/0/1.100
+
+write memory
+
+
+# ACL en R5
+enable
+configure terminal
+ip access-list standard allow-server100
+permit 10.8.0.3
+
+interface GigabitEthernet0/0/1.236
+ip access-group allow-server100 out
+
+show access-lists
+show interfaces GigabitEthernet0/0/1.236
+
+write memory
+
+# ACL en R6
+enable
+configure terminal
+ip access-list standard allow-server100
+permit 10.8.0.3
+
+interface GigabitEthernet0/0/1.370
+ip access-group allow-server100 out
+
+show access-lists
+show interfaces GigabitEthernet0/0/1.370
+
+write memory
 
 ### instalar ftp en server [X]
     - ya esta en lso server el tft
