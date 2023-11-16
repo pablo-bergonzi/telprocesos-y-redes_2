@@ -1383,10 +1383,7 @@ exit
 int g0/0/0
 ip access-group only-to-serv100 out
 exit
-int g0/0/0
-no ip access-group only-to-serv100 out
-ip access-group only-to-serv100 out
-exit
+
 
  ip inspect name ins-all tcp
 
@@ -1399,7 +1396,7 @@ exit
  ip inspect name ins-all icmp
 int g0/0/0
 ip inspect ins-all in
-
+exit
 write memory
 
 #####  ACL en R6
@@ -1417,12 +1414,6 @@ ip access-list extended only-to-serv100
 permit ip any host 10.8.0.3
 exit
 int g0/0/0
-ip access-group only-to-serv100 out
-exit
-int g0/0/0
-no ip access-group only-to-serv100 out
-ip access-group only-to-serv100 out
-exit
 
  ip inspect name ins-all tcp
 
@@ -1434,8 +1425,13 @@ exit
 
  ip inspect name ins-all icmp
 int g0/0/0
+ip access-group only-to-serv100 out
 ip inspect ins-all in
+exit
 
+int g0/0/2
+ip access-group only-to-serv100 out
+ip inspect ins-all in
 write memory
 
 ### instalar ftp en server [X]
